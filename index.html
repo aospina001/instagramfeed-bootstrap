@@ -6,8 +6,16 @@
     <title>Instagram</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/06fc2b788c.js" crossorigin="anonymous"></script>
+    <style>
+        .modal-backdrop {
+            z-index: 0;
+        }
+        .nav-pills .nav-link.active {
+            background-color: darkgray;
+        }
+    </style>
 </head>
-<body>
+<header class="sticky-top">
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <i class="fab fa-instagram"></i>
@@ -15,16 +23,16 @@
         </a>
         <div class="d-flex flex-row justify-content-end">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
             Creat a new post
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Create a new post</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Create a new post</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -35,10 +43,8 @@
                                     <label for="exampleFormControlTextarea1">Caption</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlFile1">Browse your image</label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                </div>
+                                <button type="button" class="btn btn-light"><i class="fas fa-camera"></i></button>
+                                <button type="button" class="btn btn-light"><i class="fas fa-map-marker-alt"></i></button>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <button type="button" class="btn btn-success">Publish</button>
@@ -61,83 +67,165 @@
             </div>
         </div>
     </nav>
+</header>
+<body class="bg-white">
     <div class="container">
-        <div class="pill">
+        <div>
             <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+                    <a class="nav-link active text-secondary" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="fas fa-ellipsis-v"></i></a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+                    <a class="nav-link text-secondary" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><i class="fas fa-th"></i></a>
                 </li>
             </ul>
-        </div>
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active d-flex flex-column justify-content-center" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                
-                <div class="card mx-auto mb-2" style="width: 18rem;">
-                    <div class="card-header d-flex justify-content-between">
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div class="card mx-auto mt-2 mb-2" style="width: 18rem;">
+                        <div class="card-header d-flex justify-content-between">
                             <h6>Santorini, Greece</h6>
                             <h6 class="text-secondary">09/29/2020</h6>
-                    </div>
-                    <img src="https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2013/05/15/100738170-Greece.1910x1000.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h6 class="card-title mt-n3 mb-4">25 Likes</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <div class="card-body-buttons d-flex justify-content-center">
+                        </div>
+                        <img src="https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2013/05/15/100738170-Greece.1910x1000.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h6 class="card-title mt-n3 mb-4">25 Likes</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="card-body-buttons d-flex justify-content-center">
                                 <a href="#"><i class="far fa-thumbs-up mx-3"></i></a>
                                 <a href="#"><i class="far fa-comment mx-3"></i></a>
                                 <a href="#"><i class="far fa-paper-plane mx-3"></i></a>
                                 <a href="#"><i class="far fa-bookmark mx-3"></i></a>
-                        </div>
-                    </div>        
-                </div>
-                <div class="card mx-auto mb-2" style="width: 18rem;">
-                    <div class="card-header d-flex justify-content-between">
+                            </div>
+                        </div>        
+                    </div>
+                    <div class="card mx-auto mb-2" style="width: 18rem;">
+                        <div class="card-header d-flex justify-content-between">
                             <h6>Goldendoodle</h6>
                             <h6 class="text-secondary">09/29/2020</h6>
-                    </div>
-                    <img src="http://annabelgatto.com/wp-content/uploads/2018/10/DSC_0336-1024x683.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h6 class="card-title mt-n3 mb-4">99 Likes</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <div class="card-body-buttons d-flex justify-content-center">
+                        </div>
+                        <img src="http://annabelgatto.com/wp-content/uploads/2018/10/DSC_0336-1024x683.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h6 class="card-title mt-n3 mb-4">99 Likes</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="card-body-buttons d-flex justify-content-center">
                                 <a href="#"><i class="far fa-thumbs-up mx-3"></i></a>
                                 <a href="#"><i class="far fa-comment mx-3"></i></a>
                                 <a href="#"><i class="far fa-paper-plane mx-3"></i></a>
                                 <a href="#"><i class="far fa-bookmark mx-3"></i></a>
+                            </div>
+                        </div>        
+                    </div>
+                    <div class="card mx-auto mb-2" style="width: 18rem;">
+                        <div class="card-header d-flex justify-content-between">
+                            <h6>ECF Champs</h6>
+                            <h6 class="text-secondary">09/27/2020</h6>
                         </div>
-                    </div>        
+                        <img src="https://www.miamiherald.com/latest-news/fvwoai/picture246058170/alternates/LANDSCAPE_1140/CelticsHeatBasketball%20(5).JPG" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h6 class="card-title mt-n3 mb-4">85 Likes</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="card-body-buttons d-flex justify-content-center">
+                                <a href="#"><i class="far fa-thumbs-up mx-3"></i></a>
+                                <a href="#"><i class="far fa-comment mx-3"></i></a>
+                                <a href="#"><i class="far fa-paper-plane mx-3"></i></a>
+                                <a href="#"><i class="far fa-bookmark mx-3"></i></a>
+                            </div>
+                        </div>        
+                    </div>
+                    <div class="card mx-auto mb-2" style="width: 18rem;">
+                        <div class="card-header d-flex justify-content-between">
+                            <h6>Guatape</h6>
+                            <h6 class="text-secondary">09/26/2020</h6>
+                        </div>
+                        <img src="http://hayo.co/vigor/wp-content/uploads/2015/01/IMG_0931.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h6 class="card-title mt-n3 mb-4">62 Likes</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="card-body-buttons d-flex justify-content-center">
+                                <a href="#"><i class="far fa-thumbs-up mx-3"></i></a>
+                                <a href="#"><i class="far fa-comment mx-3"></i></a>
+                                <a href="#"><i class="far fa-paper-plane mx-3"></i></a>
+                                <a href="#"><i class="far fa-bookmark mx-3"></i></a>
+                            </div>
+                        </div>        
+                    </div>
+                    <div class="card mx-auto mb-2" style="width: 18rem;">
+                        <div class="card-header d-flex justify-content-between">
+                            <h6>Burj Al Arab</h6>
+                            <h6 class="text-secondary">09/26/2020</h6>
+                        </div>
+                        <img src="https://i.ytimg.com/vi/6eUQdnL1yvA/maxresdefault.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h6 class="card-title mt-n3 mb-4">34 Likes</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="card-body-buttons d-flex justify-content-center">
+                                <a href="#"><i class="far fa-thumbs-up mx-3"></i></a>
+                                <a href="#"><i class="far fa-comment mx-3"></i></a>
+                                <a href="#"><i class="far fa-paper-plane mx-3"></i></a>
+                                <a href="#"><i class="far fa-bookmark mx-3"></i></a>
+                            </div>
+                        </div>        
+                    </div>
                 </div>
-            </div>
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <table>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </table>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="col">
+                        <div class="card-group">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1513613344/cartagena-colombia-architecture-travel-COLOMBIADEAL1217.jpg?itok=qwKmwLDn" class="card-img-top" alt="...">
+                            </div>                    
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://i.ytimg.com/vi/JO80M9_SIA0/maxresdefault.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://i.ytimg.com/vi/tCxqE8YoUXw/maxresdefault.jpg" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+                        <div class="card-group">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://thehappypuppysite.com/wp-content/uploads/2018/11/goldendoodle-grooming-long.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://2.bp.blogspot.com/-MbhrmBlAvoU/VWvqf6cBx3I/AAAAAAAAHqk/OgFvRDYhS-I/s1600/wild-exotic-beach.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Pizza_with_pineapple.jpg/1200px-Pizza_with_pineapple.jpg" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+                        <div class="card-group">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/Netherlands/Amsterdam/Amsterdam-overview-canalnighttime-xlarge.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://images1.miaminewtimes.com/imager/u/745xauto/9709469/img_0253.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://realdaily.com/wp-content/uploads/2019/07/ReadyForTheOuterSpaceEconomy_845x439.jpg" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+                        <div class="card-group">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://1.bp.blogspot.com/-VnTxaebGfEo/UD4kW9ANA_I/AAAAAAAAAik/9osEbGhLWKY/s1600/TREASURY1-PRIME1-hight2.JPG" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://i.ytimg.com/vi/ImjA2XsSBWc/maxresdefault.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Geneva_MotorShow_2013_-_Lamborghini_Veneno_1.jpg/1200px-Geneva_MotorShow_2013_-_Lamborghini_Veneno_1.jpg" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+                        <div class="card-group">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://boundtoexplore.com/wp-content/uploads/2017/02/img_6210.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://i.ytimg.com/vi/yC70-k5nceI/maxresdefault.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://i.ytimg.com/vi/9iByXSJTMMY/maxresdefault.jpg" class="card-img-top" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
